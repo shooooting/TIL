@@ -45,9 +45,3 @@ git commit -m "변경내용" commit 완료
 ## git clone "주소"
 
 github에서 원격저장소 복사
-
-## git remote add 이름 저장소주소
-
-새로운 원격저장소 추가( 통일성 있게!!)
-
-
