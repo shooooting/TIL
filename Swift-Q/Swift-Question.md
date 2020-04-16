@@ -1,5 +1,5 @@
 
-## + 1에서 5까지 reversed 같은 메서드를 쓰지 않고 역순으로 출력되게 하는 함수
+# + 1에서 5까지 reversed 같은 메서드를 쓰지 않고 역순으로 출력되게 하는 함수
 
 ```swift
 func Number() {
@@ -33,7 +33,7 @@ i 의 값이 계속 늘어나게 된다.
 결국엔 i의 값은 1 2 3 4 5 가 되고 sum은 5 4 3 2 1 이 된다. 
 ```
 
-## + 이름을 입력 값으로 받아서 출력하는 함수 (기본 형태)
+# + 이름을 입력 값으로 받아서 출력하는 함수 (기본 형태)
 ```swift
 func print(name: String) {
     print(name)
@@ -42,7 +42,7 @@ func print(name: String) {
 print(name:"안준영")
 ```
 
-## + 나이를 입력 값으로 받아서 출력하는 함수 (Argument Label 생략)
+# + 나이를 입력 값으로 받아서 출력하는 함수 (Argument Label 생략)
 ```swift
 func years(_ age: Int) {
     print(age)
@@ -51,7 +51,7 @@ func years(_ age: Int) {
 years(32)
 ```
 
-## + 이름을 입력 값으로 받아 인사말을 출력하는 함수 (Argument Label 지정)
+# + 이름을 입력 값으로 받아 인사말을 출력하는 함수 (Argument Label 지정)
 ```swift
 func hello(to name: String) {
     print(name)
@@ -59,7 +59,7 @@ func hello(to name: String) {
 
 hello(to:"준영")
 ```
-## + 아래의 if - else if - else 문을 switch 문으로 바꿔보세요.
+# + 아래의 if - else if - else 문을 switch 문으로 바꿔보세요.
 ```swift
 //if temperatureInFahrenheit <= 32 {
 //  print("It's very cold. Consider wearing a scarf.")
@@ -81,7 +81,7 @@ default :
 }
 ```
 
-## + 어떤 숫자가 주어졌을 때 짝수인지 홀수인지 출력 (switch의 where 절 이용)
+# + 어떤 숫자가 주어졌을 때 짝수인지 홀수인지 출력 (switch의 where 절 이용)
 ```swift
 let math = 4
 switch math {
@@ -91,7 +91,7 @@ default:
     print("홀수")
 }
 ```
-## + for 문을 이용하여 3 의 10 제곱에 대한 결과값을 표현하는 코드 구현
+# + for 문을 이용하여 3 의 10 제곱에 대한 결과값을 표현하는 코드 구현
 ```swift
 let down = 3
 var answer = 1
@@ -113,4 +113,56 @@ answer = answer * down 이니깐
 27 = 9 * 3
 71 = 27 * 3 
 이런 식으로 10번이 되는 거다.
+```
+# + 2 ~ 9 사이의 숫자를 입력받아 해당 숫자에 해당하는 구구단 내용을 출력하는 함수
+```swift
+func soso(number: Int) {
+    var i = 1
+    while i <= 9 {
+        print("\(number) * \(i) = \(number * i)")
+        i += 1
+    }
+}
+soso(number: 2)
+```
+```
+* 이해
+while 은 참이면 무한으로 반복하는 특징을 가지고 있어서 멈출 수 있는 한계선을 만들어줘야 한다. 그래서 i는 9까지 라는 한계를 두었다. 그래서 i는 1에서 9를 가져가고 그 밑으로
+number에 2를 주었기때문에 print 부분에 처음으로 들어가는 식은 2 * 1 = 2가 되고 그 밑으로 i가 1인게 내려가서 1 + 1 = 2 가 되고 또 print로 2가 i로 올라가게 된다.
+이런식으로 
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+이렇게 쭉 
+2 * 9 = 18 까지 내려가게 된다.
+```
+# + 자연수 하나를 입력받아 1부터 해당 숫자 사이의 모든 숫자의 합을 구해 그 합을 반환하는 함수
+```swift
+func Num(number: Int) {
+    var i = 1
+    var e = 0
+    repeat {
+        e += i
+        i += 1
+    } while i <= number
+    print(e)
+}
+
+Num(number:10)
+```
+# + 2개의 정수를 입력받아 Modulo 연산(%)의 결과를 반환하는 함수를 만들되 2번째 파라미터와 결과값의 타입은 옵셔널로 정의. 두 번째 파라미터 입력값으로 nil 이나 0이 들어오면 결과로 nil을 반환하고, 그 외에는 계산 결과 반환
+```swift
+func optional(op1: Int, op2: Int?) -> Int? {
+    guard let op2 = op2, op2 != 0 else { return nil }
+    return op1 % op2
+}
+
+optional(op1: 3, op2: 4)
+```
+```
+* 이해
+Optional 타입의 op2을 Binding과 Unwraping을 
+guard let op = op 이 부분에서 해주고 이 부분에서 nil이면 nil 출력
+값이 있으면 op2 != 0 이 부분에서 0이 아니니깐
+그 밑의 op1 % op2 로 내려간다. 
 ```
