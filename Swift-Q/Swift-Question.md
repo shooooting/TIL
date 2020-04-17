@@ -166,3 +166,116 @@ guard let op = op 이 부분에서 해주고 이 부분에서 nil이면 nil 출�
 값이 있으면 op2 != 0 이 부분에서 0이 아니니깐
 그 밑의 op1 % op2 로 내려간다. 
 ```
+# + 옵셔널 타입의 문자열 파라미터 3개를 입력받은 뒤, 옵셔널을 추출하여 Unwrapped 된 하나의 문자열로 합쳐서 반환하는 함수
+
+```
+func combineString(str1: String?, str2: String?, str3: String?) -> String {
+  // code
+}
+
+// 입력 예시 및 결과
+combineString1(str1: "AB", str2: "CD", str3: "EF")   // "ABCDEF"
+combineString1(str1: "AB", str2: nil, str3: "EF")    // "ABEF"
+
+```
+```swift
+func combinString(str1: String?, str2: String?, str3: String?) -> String {
+    let show1 = str1 ?? ""
+    let show2 = str2 ?? ""
+    let show3 = str3 ?? ""
+
+    let sum: String = show1 + show2 + show3
+    return sum
+}
+
+combinString(str1:"AB", str2:"CD", str3:"EF")
+```
+```
+* 이해
+Optional<String>타입의 str1,2,3이 있고 이것을 unwrapped을 시켜주기 위해서 
+let show1 = str1 ?? "" <- 이것을 사용했다.
+ㄴ str1 이 nil 값이면 "" 이걸로 show1에 담기고 아니면 있는 그대로 담기는 방식이다.
+그렇게 show1,2,3에 담기고 하나의 문자열로 반환하려면 
+let sum: String = show1 + show2 + show3
+이렇게 sum에 담아 주는데 String 타입으로 맞춰 주고 마지막으로 return! 해주면 된다.
+```
+# + 사칙연산(+, -, *, /)을 가진 enum 타입 Arithmetic과 2개의 자연수를 입력 파라미터로 받아 (파라미터 총 3개) 해당 연산의 결과를 반환하는 함수 구현
+```
+예시
+enum Arithmetic {
+  case addition, subtraction, multiplication, division
+}
+```
+```swift
+enum Arithmetic {
+    case addition, subtraction, multiplication, division
+
+    func math(num1: Int, num2: Int) -> Double {
+        var a: Double = 0.0
+        switch self {
+        case .addition:
+         a = (num1 + num2)
+        case .subtraction:
+         a = (num1 - num2)
+        case .multiplication:
+         a = (num1 * num2)
+        case .division:
+         a = (num1 / num2)
+        }
+        return a
+    }
+}
+let sum = Arithmetic.addition
+sum.math(num1: 2, num2: 3)
+```
+```
+* 이해
+enum 구문에 case를 선언한 4개의 연산 밑으로 함수를 만들어 준다. 
+2개의 자연수를 Int값으로 받아오고 return으로 Double값이 나올 수 있도록 한다.
+연산의 결과에 따라서 소수점이 나올 수 있기 때문에 Double로 return을 한다.
+연산하는 값을 담을 변수를 Double 로 만들어 주고 
+switch 문을 만들어서 각 연산자에 맞게 연산식을 넣어 준다. 
+다 넣어준 후 switch 문을 닫고 그 밑으로 return하여 준다.
+let sum = Arithmetic.addition
+ㄴ sum에 enum Arithmetic에 addition을 넣어준것 그래서
+sum.math(num1: 2, num2: 3) 이것을 풀어 보면
+Arithmetic.addition.math(num1: 2, num2: 3) 이게 된다.
+```
+# + celcius, fahrenheit, kelvin 온도 3가지 케이스를 가진 enum 타입 Temperature 를 정의 각 케이스에는 Double 타입의 Associated Value 를 받도록 함 추가로 Temperature 타입 내부에 각 온도를 섭씨 온도로 변환해주는 toCelcius() 함수를 구현
+```
+섭씨 = (화씨 - 32) * 5 / 9
+섭씨 = 켈빈 + 273
+enum Temperature {
+  // 코드
+}
+```
+```swift
+enum Temperature {
+    case celcius(Double), fahrenheit(Double), kelvin(Double)
+    
+    func toCelcius() -> Double {
+        var b: Double = 0.0
+        switch self{
+        case let .celcius(a):
+            b = (a)
+        case let .fahrenheit(a):
+            b = (a - 32) * 5 / 9
+        case let .kelvin(a):
+            b = (a + 273)
+        }
+        return b
+    }
+}
+let tem = Temperature.fahrenheit(100.2)
+tem.toCelcius()
+```
+```
+* 이해
+화씨에서 섭씨로 변환하는 부분에 식을 보면 충분히 Double 타입이 예상되기에 
+Double 타입으로 선언해서 진행 하였다. 
+각 온도 부분에서도 Double타입을 명시해 주었고 
+let tem = Temperature.fahrenheit(100.2) 상수 선언
+위 처럼 상수가 선언이 되었기 때문에 
+switch self 의 self는 .fahernheit 가 된다.
+그래서 case let .fahrenheit(a) 부분이 실행되는 것이다.
+```
