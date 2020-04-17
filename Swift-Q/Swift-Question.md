@@ -279,3 +279,41 @@ let tem = Temperature.fahrenheit(100.2) 상수 선언
 switch self 의 self는 .fahernheit 가 된다.
 그래서 case let .fahrenheit(a) 부분이 실행되는 것이다.
 ```
+# + 문자열을 입력받으면 그 문자열의 개수를 반환하는 클로져 구현
+```swift
+let someThing = { (word: String) -> Int in
+    return word.count
+}
+someThing("shoocream")
+```
+# + 숫자 하나를 입력받은 뒤 1을 더한 값을 반환하는 클로져 구현
+```swift
+let soloNumber = {(soling: Int) -> Int in
+    let a: Int = 1
+    return a + soling
+    
+}
+soloNumber(3)
+
+let Solo = { crystal in
+    return crystal + 1
+}
+Solo(5)
+```
+# + 정수를 하나 입력받아 2의 배수 여부를 반환하는 클로져
+```swift
+let alone = { (numbering: Int) -> Bool in
+    return numbering % 2 == 0
+}
+alone(5)
+```
+# + 정수를 두 개 입력 받아 곱한 결과를 반환하는 클로져
+```swift
+let twin = { (nop1: Int, nop2: Int) -> Int in
+    return nop1 * nop2
+}
+twin(4,2)
+
+let twobro: (Int, Int) -> Int = { $0 * $1 }
+twobro(4,5)
+```
