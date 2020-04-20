@@ -382,3 +382,167 @@ twin(4,2)
 
 let twobro: (Int, Int) -> Int = { $0 * $1 }
 twobro(4,5)
+
+//1. 다음과 같은 속성(Property)과 행위(Method)를 가지는 클래스 만들어보기.
+//구현 내용은 자유롭게
+//** 강아지 (Dog)
+//- 속성: 이름, 나이, 몸무게, 견종
+//- 행위: 짖기, 먹기
+
+class Dog {
+    var name = "진호"
+    var age = 4
+    var weight = 12
+    var species = "치와와"
+    
+    func bark() {
+        print("Bow?Wow!!!Wal!!Wal!!!")
+    }
+    
+    func eat() {
+        print("yamyamchabchab")
+    }
+}
+
+let dog1 = Dog()
+dog1.bark()
+
+//** 학생 (Student)
+//- 속성: 이름, 나이, 학교명, 학년
+//- 행위: 공부하기, 먹기, 잠자기
+
+class Student {
+    var name = "안준영"
+    var age = 32
+    var school = "fastcampus"
+    var grade = 1
+    
+    func study() {
+        print("공부중")
+    }
+    
+    func eat() {
+        print("뭐먹을래?")
+    }
+    
+    func sleep() {
+        print("모르겠고 잘란다.")
+    }
+}
+
+let student1 = Student()
+student1.sleep()
+
+//** 아이폰(IPhone)
+//- 속성: 기기명, 가격, faceID 기능 여부(Bool)
+//- 행위: 전화 걸기, 문자 전송
+
+class Iphone {
+    var model: String
+    var price: Int
+    var faceID: Bool
+    
+    init(_ model: String, _ price: Int, _ faceID: Bool) {
+        self.model = model
+        self.price = price
+        self.faceID = faceID
+    }
+    
+    func calling() {
+        print("What up ~")
+    }
+    
+    func msg() {
+        print("ㅇㄷ")
+    }
+}
+
+let phon = Iphone("iPhoneX", 1330000, true)
+phon.msg()
+
+//** 커피(Coffee)
+//- 속성: 이름, 가격, 원두 원산지
+
+class Coffee {
+    var name: String
+    var price: Int
+    var beans: String
+    
+    init(_ name: String, _ price: Int, _ beans: String) {
+        self.name = name
+        self.price = price
+        self.beans = beans
+    }
+    
+    func hotAndIce() {
+        print("차가운 걸로 드릴까요?")
+    }
+}
+
+let cofee = Coffee("바리스타룰스", 2000, "에티오피아")
+cofee.hotAndIce()
+
+//2. 계산기 클래스를 만들고 다음과 같은 기능을 가진 Property 와 Method 정의해보기
+//
+//** 계산기 (Calculator)
+//- 속성: 현재 값
+//- 행위: 더하기, 빼기, 나누기, 곱하기, 값 초기화
+//
+//ex)
+//let calculator = Calculator() // 객체생성
+//
+//calculator.value  // 0
+//
+//calculator.add(10)    // 10
+//calculator.add(5)     // 15
+//
+//calculator.subtract(9)  // 6
+//calculator.subtract(10) // -4
+//
+//calculator.multiply(4)   // -16
+//calculator.multiply(-10) // 160
+//
+//calculator.divide(10)   // 16
+//calculator.reset()      // 0
+
+class Calculator {
+    var calcul = 0
+    
+    func add(_ input: Int) {
+        calcul += input
+        print(calcul)
+    }
+    
+    func subtract(_ sub: Int) {
+        calcul -= sub
+        print(calcul)
+    }
+    
+    func multiply(_ mul: Int) {
+        calcul *= mul
+        print(calcul)
+    }
+    
+    func divide(_ div: Int) {
+        calcul /= div
+        print(calcul)
+    }
+    
+    func reset() {
+        calcul = 0
+        print("최기화 되었습니다.")
+    }
+}
+
+let calculator = Calculator()
+calculator.add(10)
+calculator.add(5)
+
+calculator.subtract(9)
+calculator.subtract(10)
+
+calculator.multiply(4)
+calculator.multiply(-10)
+
+calculator.divide(10)
+calculator.reset()
