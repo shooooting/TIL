@@ -353,3 +353,119 @@ let otherClosure: ([Int]) -> Int = { (values: [Int]) -> Int in
 
 otherClosure([4,5,6])
 ```
+<img width="483" alt="53207a479c06c092" src="https://user-images.githubusercontent.com/62827163/79853526-25abb600-8403-11ea-9c83-dffed39b48f8.png">
+
+```swift
+class Animal {
+    var brain = true
+    var legs: Int
+    
+    final var life = "살아있다."
+    
+    init(legs: Int) {
+        self.legs = legs
+    }
+    
+    func bark() {
+        print("목소리")
+    }
+}
+
+let animal = Animal(legs: 4)
+animal.bark()
+animal.legs
+animal.brain
+
+class Human: Animal {
+    var mad: String
+
+    override var legs: Int {
+        get { super.legs }
+        set { super.legs = newValue }
+    }
+    
+    override func bark() {
+        print("저는 사람입니다.")
+    }
+    
+    init(legs: Int, mad: String = "정상인") {
+        self.mad = mad
+        super.init(legs: legs)
+    }
+}
+
+let human = Human(legs: 2)
+human.legs
+human.bark()
+human.mad
+human.life
+
+class Pet: Animal {
+    var cute: String
+    
+    override var legs: Int {
+        get { super.legs }
+        set { super.legs = newValue }
+    }
+    
+    override func bark() {
+        print("barkbark")
+    }
+    
+    init(legs: Int, cute: String = "다귀여워"){
+        self.cute = cute
+        super.init(legs: legs)
+    }
+}
+
+let pet = Pet(legs: 4)
+pet.legs
+pet.bark()
+pet.cute
+pet.life
+pet.brain
+
+class Cat: Pet {
+    var color: String
+    
+    init(color: String = "하얀이", legs: Int, cute: String ){
+        self.color = color
+        super.init(legs: legs, cute: cute)
+    }
+    override func bark() {
+        print("이아야야야야야오옹오~")
+    }
+}
+
+let cat = Cat(legs: 4, cute: "귀요미")
+cat.cute
+cat.bark()
+cat.life
+cat.color
+cat.brain
+
+class Dogs: Pet {
+    var color: String
+    var origin: String
+    
+    init(color: String = "초코", origin: String = "Husky", legs: Int, cute: String) {
+        self.color = color
+        self.origin = origin
+        super.init(legs: legs, cute: cute)
+    }
+    
+    override func bark() {
+        print("왈왈왈왈와로아롸왕롸왕왈왈")
+    }
+}
+
+let dog = Dogs(legs: 4, cute: "핵귀여워")
+dog.bark()
+dog.cute
+dog.legs
+dog.origin
+dog.color
+```
+
+
+
