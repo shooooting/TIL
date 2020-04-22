@@ -466,6 +466,102 @@ dog.legs
 dog.origin
 dog.color
 ```
+![3_](https://user-images.githubusercontent.com/62827163/79967992-8651f600-84ca-11ea-9fd9-747c8d2c9564.png)
+```swift
+class figure {
+    
+    var s = 5.0
+    var w = 5.0
+    var l = 5.0
+    var r = 2.5
+    var b = 5.0
+    var h = 3.0
+    var a = 10.0
+    
+    
+    lazy var square = "사각형의 넓이, 둘레"
+    var squareAnswer: String {
+        return "사각형의 넓이는\(s * s), 사각형의 둘레는 \(4 * (s))"
+    }
+    
+    lazy var rectangle = "직사각형 둘레, 넓이"
+    var rectangleAnswer: String {
+        return "직사각형의 둘레는 \(2 * l + 2 * w), 직사각형의 넓이는\(l * w)"
+    }
+    
+    lazy var circle = "원의 넓이, 원 둘레"
+    var circleAnswer: String {
+        return "원의 넓이는 \(3.14 * ( r * r )), 원둘레는 \(2 * 3.14 * r)"
+    }
+    
+    lazy var triangle = "삼각형의 넓이"
+    var triangleAnswer: String {
+        return "삼각형의 넓이는 \( ( 1 / 2 ) * b * h )"
+    }
+    
+    lazy var trapezoid = "사다리꼴의 넓이"
+    var trapezoidAnswer: String {
+        return "사다리꼴의 넓이는 \( ( 1 / 2 ) * h * ( a + b ) )"
+    }
+    
+    lazy var cube = "큐브의 부피"
+    var cubeAnswer: String {
+        return "큐브의 부피는 \( s * s * s )"
+    }
+    
+    lazy var rectangularSolid = "직사각형 큐브의 부피"
+    var retangularSolidAnswer: String {
+        return "직사각 큐브의 부피는 \( w * l * h )"
+    }
+    
+    lazy var circularCylinder = "원기둥의 부피"
+    var circularCylinderAnswer: String {
+        return "원기둥의 부피는 \( 3.14 * ( r * r ) * h ) "
+    }
+    
+    lazy var sphere = "구의 부피"
+    var sphereAnswer: String {
+        return "구의 부피는 \( ( 4 / 3 ) * 3.14 * ( r * r * r ) )"
+    }
+    
+    lazy var cone = "원뿔의 부피"
+    var coneAnswer: String {
+        return "원뿔의 부피는 \( ( 1 / 3 ) * 3.14 * ( r * r ) * h )"
+    }
+}
+
+let figurePrice = figure()
+
+figurePrice.square
+figurePrice.squareAnswer
+
+figurePrice.rectangle
+figurePrice.rectangleAnswer
+
+figurePrice.circle
+figurePrice.circleAnswer
+
+figurePrice.triangle
+figurePrice.triangleAnswer
+
+figurePrice.trapezoid
+figurePrice.trapezoidAnswer
+
+figurePrice.cube
+figurePrice.cubeAnswer
+
+figurePrice.rectangularSolid
+figurePrice.retangularSolidAnswer
+
+figurePrice.circularCylinder
+figurePrice.circularCylinderAnswer
+
+figurePrice.sphere
+figurePrice.sphereAnswer
+
+figurePrice.cone
+figurePrice.coneAnswer
+```
 
 
 
