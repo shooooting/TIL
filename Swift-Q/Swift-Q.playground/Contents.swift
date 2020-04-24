@@ -751,3 +751,25 @@ dog.cute
 dog.legs
 dog.origin
 dog.color
+
+//1. 정수 하나를 입력받은 뒤, 해당 숫자와 숫자 1사이에 있는 모든 정수의 합계 구하기
+//e.g.  5 -> 1 + 2 + 3 + 4 + 5 = 15,   -2 -> -2 + -1 + 0 + 1 = -2
+
+func inNumber(_ num: Int) -> Int {
+    var sum = 0
+    if num <= 0 {
+        for i in 0...abs(num) {
+            sum += i
+        }
+        sum *= -1
+        sum += 1
+    } else {
+        for i in 0...num {
+            sum += i
+        }
+    }
+    return sum
+}
+
+inNumber(0)
+//inNumber(-2)
