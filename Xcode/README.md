@@ -10,4 +10,8 @@
 ```
 
 ```
-200427 - UIViewController, Card-Style Modal presetation
+200427 - UIViewController, Card-Style Modal presetation, button으로 이동
+    ㄴ 버튼을 누르면 다음 페이지로 이동 , 이전 페이지로 이동, 처음 페이지로 이동
+    + 과제 : 버튼을 누를 때 마다 페이지를 이동 마지막 페이지에서는 첫번째 페이지로 이동
+    + 문제 : A에서 B로 갈 때 3, B에서 다시 A로 넘어올 때 4, 다시 A에서 B로 가면 7, 다시 A로 오면 8
+```
