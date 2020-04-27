@@ -8,3 +8,6 @@
         2) 숫자가 증가할 때는 label의 텍스트 색을 파란색, 감소할 때는 빨간색으로 변경
     + 문제 : Label, Button 각각 하나씩 만들고 count를 하나 만들어서 버튼을 누를때 마다 값이 올라가게 구현
 ```
+
+```
+200427 - UIViewController, Card-Style Modal presetation
