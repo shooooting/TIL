@@ -1,16 +1,10 @@
-# 200427
+# 200424
 ## 문제
 ```
-문제: 3개의 뷰 컨트롤러 사이에 화면 전환하기
-     A는 B로 가는 버튼
-     B는 A로 돌아가는 dismiss 버튼과 C로 가는 버튼
-     C는 A 또는 B로 돌아가는 dismiss 버튼
-
-(참고)
-A -> B   
-  <- B -> C
-     B <- C
-A   <-    C
+문제: UISwitch, UISegmentedControl 을 이용한 문제
+- UISwitch : On, Off 가 바뀔 때마다 Label 의 내용이 On, Off 로 표시되도록 구현
+- UISegmentedControl : 선택 내용이 바뀔 때마다 Label 의 내용도 해당 타이틀 값으로 함께 변경되도록 구현
+참고로, 위 2개는 버튼과 달리 event 처리를 touchUpInside 가 아니라 valueChanged 라는 것을 활용해야 함
 ```
 ```swift
 import UIKit
