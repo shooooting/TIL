@@ -22,5 +22,9 @@
     + 문제 : A에서 B로 갈 때 3, B에서 다시 A로 넘어올 때 4, 다시 A에서 B로 가면 7, 다시 A로 오면 8
 ```
 ```
-200428 - Alert
+200428 - AlertController, AlertAction
+    ㄴ 버튼을 누르면 AlertController가 나오고 그 안에 AlertAction을 활용
+    + 문제 : 값을 사칙연산을 해주고, reset도 해주고 cancel하면 그냥 끄기.
+    + 문제 : TextField를 활용해서 값을 Label에 실시간으로 주기.
+
 ```
