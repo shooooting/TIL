@@ -26,5 +26,12 @@
     ㄴ 버튼을 누르면 AlertController가 나오고 그 안에 AlertAction을 활용
     + 문제 : 값을 사칙연산을 해주고, reset도 해주고 cancel하면 그냥 끄기.
     + 문제 : TextField를 활용해서 값을 Label에 실시간으로 주기.
+```
+```
+200501 - 시험
+<img width="1070" alt="스크린샷 2020-05-01 오후 10 35 03" src="https://user-images.githubusercontent.com/62827163/80809244-3d9de980-8bfc-11ea-82eb-743cd13bc2e0.png">
 
+<img width="880" alt="스크린샷 2020-05-01 오후 10 36 03" src="https://user-images.githubusercontent.com/62827163/80809343-6d4cf180-8bfc-11ea-8492-4c610180340e.png">
+
+<img width="1105" alt="스크린샷 2020-05-01 오후 10 35 42" src="https://user-images.githubusercontent.com/62827163/80809369-7fc72b00-8bfc-11ea-83eb-dfa16223a3c4.png">
 ```
