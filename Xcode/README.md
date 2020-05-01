@@ -29,9 +29,7 @@
 ```
 ```
 200501 - 시험
-<img width="1070" alt="스크린샷 2020-05-01 오후 10 35 03" src="https://user-images.githubusercontent.com/62827163/80809244-3d9de980-8bfc-11ea-82eb-743cd13bc2e0.png">
-
-<img width="880" alt="스크린샷 2020-05-01 오후 10 36 03" src="https://user-images.githubusercontent.com/62827163/80809343-6d4cf180-8bfc-11ea-8492-4c610180340e.png">
-
-<img width="1105" alt="스크린샷 2020-05-01 오후 10 35 42" src="https://user-images.githubusercontent.com/62827163/80809369-7fc72b00-8bfc-11ea-83eb-dfa16223a3c4.png">
 ```
+![a](https://user-images.githubusercontent.com/62827163/80810162-337cea80-8bfe-11ea-8aa1-aea94635541b.jpg)
+![b](https://user-images.githubusercontent.com/62827163/80810224-54ddd680-8bfe-11ea-9b52-dd9cae01c8c0.jpg)
+![c](https://user-images.githubusercontent.com/62827163/80810229-58715d80-8bfe-11ea-9dd1-47813136ce94.jpg)
