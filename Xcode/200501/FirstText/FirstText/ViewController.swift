@@ -106,14 +106,44 @@ class ViewController: UIViewController {
         self.meetAndSauce.text = String(meetAndSauceCount)
     }
     
+//    @objc func cardSlash(_ sender: UIButton) {
+//        let alertController = UIAlertController(title: "결제하기", message: "총 결제 금액은 \(String(money))원 입니다.", preferredStyle: .alert)
+//
+//        let okAction = UIAlertAction(title: "확인", style: .default){_ in
+//            if self.money < self.inMoney {
+//            self.inMoney = self.inMoney - self.money
+//                self.money = 0
+//            self.labelmoney1.text = "\(String(self.inMoney))원"
+//                self.labelmoney2.text = "\(String(self.money))원"
+//                self.blackNoodleCount = 0
+//                self.mixNoodleCount = 0
+//                self.meetAndSauceCount = 0
+//                self.blackNoodle.text = String(self.blackNoodleCount)
+//                self.mixNoodle.text = String(self.mixNoodleCount)
+//                self.meetAndSauce.text = String(self.meetAndSauceCount)
+//            } else if self.money > self.inMoney {
+//            }
+//
+//        }
+//        let cancelAction = UIAlertAction(title: "취소", style: .cancel){_ in
+////
+//        }
+//
+//        for action in [okAction, cancelAction] {
+//            alertController.addAction(action)
+//        }
+//
+//        present(alertController, animated: true)
+//    }
+    
     @objc func cardSlash(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "결제하기", message: "총 결제 금액은 \(String(money))원 입니다.", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "확인", style: .default){_ in
-            if self.money < self.inMoney {
-            self.inMoney = self.inMoney - self.money
+        guard money >= inMoney else {
+            let alertController = UIAlertController(title: "결제하기", message: "총 결제 금액은 \(String(money))원 입니다.", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "확인", style: .default){_ in
+                self.inMoney -= self.money
                 self.money = 0
-            self.labelmoney1.text = "\(String(self.inMoney))원"
+                self.labelmoney1.text = "\(String(self.inMoney))원"
                 self.labelmoney2.text = "\(String(self.money))원"
                 self.blackNoodleCount = 0
                 self.mixNoodleCount = 0
@@ -121,20 +151,26 @@ class ViewController: UIViewController {
                 self.blackNoodle.text = String(self.blackNoodleCount)
                 self.mixNoodle.text = String(self.mixNoodleCount)
                 self.meetAndSauce.text = String(self.meetAndSauceCount)
-            } else {
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel){_ in
                 
             }
             
+            for action in [okAction, cancelAction] {
+                alertController.addAction(action)
+            }
+            
+            present(alertController, animated: true)
+            return
         }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel){_ in
-//
+        let alertController = UIAlertController(title: "경고", message: "보유금액이 부족합니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default){_ in
+            
         }
         
-        for action in [okAction, cancelAction] {
-            alertController.addAction(action)
-        }
-        
+        alertController.addAction(okAction)
         present(alertController, animated: true)
+        
     }
     
 }
