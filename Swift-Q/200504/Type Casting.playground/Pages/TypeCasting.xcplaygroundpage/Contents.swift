@@ -247,16 +247,18 @@ type(of: values[4])
 
 for value in values {
   switch value {
-  case is Int:
-    print("\(value)는 Int 타입입니다.")
-  case is Double:
-    print("\(value)는 Double 타입입니다.")
-  case is (Double, Double):
-    print("\(value)는 (Double, Double) 타입입니다.")
-  case is Car:
-    print("\(value)는 Car {} 타입입니다.")
-  default:
+  case let anyFirst as Int:
+    print("\(value)는 Int 타입이다.")
+  case let anySecond as Double:
+    print("\(value)는 Double 타입이다.")
+  case let anyThird as (Double, Double):
+    print("\(value)는 (Double, Double)타입이다.")
+  case let anyFourth as Car:
+    print("\(value)는 Car()타입이다.")
+  case let anyFifth as (String) -> Int:
     print("\(value)는 (String) -> Int 타입입니다.")
+  default:
+    print("무슨 타입인지 너가 나가서 알아보고 와~!")
   }
 }
 
