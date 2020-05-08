@@ -2,18 +2,18 @@
 ## 문제
 ```
 1. 짜장면 주문 버튼 클릭 - 짜장면 수량 : 1 증가
-- 결제금액 : 5000원 
- 
+- 결제금액 : 5000원
+
 2. 탕수육 주문 버튼 클릭 - 탕수육 수량 : 1 증가
 - 결제금액 : 17000원
-(5000 + 12000원) 
- 
-3. 결제 버튼 클릭 
+(5000 + 12000원)
+
+3. 결제 버튼 클릭
 - 취소, 확인 버튼을 가진 AlertController 띄우기 (메시지 - 총 결제금액은 17000원입니다.) - 확인 버튼 클릭 시 70,000원에서 17,000원 차감해 소지금액을 53,000원으로 변경하고 
-각 메뉴아이템 주문 수량과 결제금액을 0으로 초기화 
+각 메뉴아이템 주문 수량과 결제금액을 0으로 초기화
 - 결제액이 소지금을 초과할 경우, 자동으로 결제를 취소하고
 Alert을 이용해 "소지금이 부족합니다" 오류메시지 띄우기
-4. 초기화 버튼 클릭 
+4. 초기화 버튼 클릭
 - 각 아이템 수량 및 결제금액 0원으로 초기화, 소지금 70,000원으로 초기화
 ```
 ![a](https://user-images.githubusercontent.com/62827163/80810162-337cea80-8bfe-11ea-8aa1-aea94635541b.jpg)
@@ -149,7 +149,7 @@ class ViewController: UIViewController {
 //    }
     
     @objc func cardSlash(_ sender: UIButton) {
-        guard money >= inMoney else {
+        guard money > inMoney else {
             let alertController = UIAlertController(title: "결제하기", message: "총 결제 금액은 \(String(money))원 입니다.", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "확인", style: .default){_ in
