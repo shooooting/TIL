@@ -81,6 +81,7 @@ rect.color
 let upcastedRect: Shape = Rectangle()
 type(of: upcastedRect)   //
 
+
 upcastedRect.color
 //upcastedRect.cornerRadius shape타입에 cornerRadius를 갖고 있지 않아서 에러가 뜸
 
@@ -263,3 +264,10 @@ for value in values {
 }
 
 //: [Next](@next)
+
+
+
+
+
+
+

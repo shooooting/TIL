@@ -137,7 +137,7 @@ class ViewController: UIViewController {
 //    }
     
     @objc func cardSlash(_ sender: UIButton) {
-        guard money >= inMoney else {
+        guard money > inMoney else {
             let alertController = UIAlertController(title: "결제하기", message: "총 결제 금액은 \(String(money))원 입니다.", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "확인", style: .default){_ in
