@@ -38,8 +38,6 @@ View와 SafeArea를 구분해 오토레이아웃 설정하기
 2번째 뷰의 width는 1번째 뷰 width의 0.7배보다 1 작게 설정
 3번째 뷰의 width는 2번째 뷰 width의 0.7배보다 2 작게 설정
 
+![image](https://user-images.githubusercontent.com/62827163/82144848-74bdfd00-9882-11ea-992b-4e88828015ca.png)
 
-![image](https://user-images.githubusercontent.com/62827163/82118405-3bb65780-97b2-11ea-82bc-ca8c93ab2507.png)
-
-
-![image](https://user-images.githubusercontent.com/62827163/82118414-4b35a080-97b2-11ea-8ded-d4da093d345a.png)
+![image](https://user-images.githubusercontent.com/62827163/82144865-78ea1a80-9882-11ea-863b-4c7a56f2ae3f.png)
