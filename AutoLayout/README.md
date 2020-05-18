@@ -41,3 +41,38 @@ View와 SafeArea를 구분해 오토레이아웃 설정하기
 ![image](https://user-images.githubusercontent.com/62827163/82144848-74bdfd00-9882-11ea-992b-4e88828015ca.png)
 
 ![image](https://user-images.githubusercontent.com/62827163/82144865-78ea1a80-9882-11ea-863b-4c7a56f2ae3f.png)
+
+## CHCR의 Priority를 이용
+
+![2020-05-18 17-42-25 2020-05-18 19_44_26](https://user-images.githubusercontent.com/62827163/82205942-515a8700-9942-11ea-9727-0f4c5956fb10.gif)
+
+### Storyboard 로 UI 구현 후 Code로 animate 구현
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var testView: UIView!
+    
+    @IBOutlet var testViewCenterYConstraint: NSLayoutConstraint!
+    
+//    let someView = UIView()
+//    var topConstraint: NSLayoutConstraint!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+    @IBAction func buttonDidTab(_ sender: Any) {
+        UIView.animate(withDuration: 2) {
+            print(self.testViewCenterYConstraint.isActive)
+            self.testViewCenterYConstraint.isActive.toggle()
+            self.view.layoutIfNeeded()
+        }
+
+    }
+}
+```
