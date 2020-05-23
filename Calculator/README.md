@@ -1,6 +1,8 @@
 # Calculator
 [계산기구현](https://www.notion.so/shooooting/d391798832bb440e859badd623b3751b)
 
+[선생님의 계산기](https://www.notion.so/shooooting/39f1730700d7440f8cb19dc15de77ac4)
+
 > [ 계산기 구현 내용 ]
 - displayLabel 에는 2 + 3 / 4 와 같이 여러 개의 표현 식이 출력되지 않고 결과 창에는 항상 숫자만 표현
 - 곱하기(×)와 나누기(÷) 기호는 control + command + spacebar를 눌러서 수학 기호를 사용해야 함
