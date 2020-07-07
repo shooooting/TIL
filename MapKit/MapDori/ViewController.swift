@@ -8,11 +8,18 @@
 
 import MapKit
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
 
   private let map = MKMapView()
   
+  let aniView: AnimationView = {
+    let ani = AnimationView(name: "18123-developer")
+    ani.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+    ani.contentMode = .scaleAspectFill
+    return ani
+  }()
   
   private let upView: UIView = {
     let view = UIView()
@@ -48,10 +55,23 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    let vc = LaunchViewController()
+    vc.modalPresentationStyle = .fullScreen
+    present(vc, animated: false)
     
+    navigationController?.setNavigationBarHidden(true, animated: true)
+
     setUI()
-    
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+
+      
+    }
+  
+  
 
   func setUI() {
     view.addSubview(map)

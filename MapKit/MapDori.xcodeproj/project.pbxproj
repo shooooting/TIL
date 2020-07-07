@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		0E77817424A705B300CBFF72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E77817324A705B300CBFF72 /* Assets.xcassets */; };
 		0E77817724A705B300CBFF72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E77817524A705B300CBFF72 /* LaunchScreen.storyboard */; };
 		0E77818124A74C4900CBFF72 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E77818024A74C4900CBFF72 /* SecondViewController.swift */; };
+		0EBB295E24AC2759003B99BB /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBB295D24AC2759003B99BB /* LaunchViewController.swift */; };
+		0EBB296024AC2830003B99BB /* 18123-developer.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EBB295F24AC2830003B99BB /* 18123-developer.json */; };
+		D61EF4F6D913F5B302514FDC /* Pods_MapDori.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF85E8EC96E552787A73055 /* Pods_MapDori.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		0E77817624A705B300CBFF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E77817824A705B300CBFF72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E77818024A74C4900CBFF72 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		0EBB295D24AC2759003B99BB /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		0EBB295F24AC2830003B99BB /* 18123-developer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "18123-developer.json"; sourceTree = "<group>"; };
+		0EF85E8EC96E552787A73055 /* Pods_MapDori.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapDori.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		963F050FCE4CA0F6C66FB28C /* Pods-MapDori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapDori.release.xcconfig"; path = "Target Support Files/Pods-MapDori/Pods-MapDori.release.xcconfig"; sourceTree = "<group>"; };
+		C541DF8105B0B0E5EC11AA60 /* Pods-MapDori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapDori.debug.xcconfig"; path = "Target Support Files/Pods-MapDori/Pods-MapDori.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61EF4F6D913F5B302514FDC /* Pods_MapDori.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,8 @@
 			children = (
 				0E77816924A705B200CBFF72 /* MapDori */,
 				0E77816824A705B200CBFF72 /* Products */,
+				535F9500F6ACD442F1105F08 /* Pods */,
+				264E2CA0957D6E3A37073AAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +69,10 @@
 		0E77816924A705B200CBFF72 /* MapDori */ = {
 			isa = PBXGroup;
 			children = (
+				0EBB295F24AC2830003B99BB /* 18123-developer.json */,
 				0E77816A24A705B200CBFF72 /* AppDelegate.swift */,
 				0E77816C24A705B200CBFF72 /* SceneDelegate.swift */,
+				0EBB295D24AC2759003B99BB /* LaunchViewController.swift */,
 				0E77816E24A705B200CBFF72 /* ViewController.swift */,
 				0E77818024A74C4900CBFF72 /* SecondViewController.swift */,
 				0E77817024A705B200CBFF72 /* Main.storyboard */,
@@ -70,6 +83,23 @@
 			path = MapDori;
 			sourceTree = "<group>";
 		};
+		264E2CA0957D6E3A37073AAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EF85E8EC96E552787A73055 /* Pods_MapDori.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		535F9500F6ACD442F1105F08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C541DF8105B0B0E5EC11AA60 /* Pods-MapDori.debug.xcconfig */,
+				963F050FCE4CA0F6C66FB28C /* Pods-MapDori.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E77817B24A705B300CBFF72 /* Build configuration list for PBXNativeTarget "MapDori" */;
 			buildPhases = (
+				C0A74D56EAF19E9F75B63334 /* [CP] Check Pods Manifest.lock */,
 				0E77816324A705B200CBFF72 /* Sources */,
 				0E77816424A705B200CBFF72 /* Frameworks */,
 				0E77816524A705B200CBFF72 /* Resources */,
+				74EC787669AA785CCA1B9986 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +162,54 @@
 			files = (
 				0E77817724A705B300CBFF72 /* LaunchScreen.storyboard in Resources */,
 				0E77817424A705B300CBFF72 /* Assets.xcassets in Resources */,
+				0EBB296024AC2830003B99BB /* 18123-developer.json in Resources */,
 				0E77817224A705B200CBFF72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74EC787669AA785CCA1B9986 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MapDori/Pods-MapDori-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MapDori/Pods-MapDori-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MapDori/Pods-MapDori-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0A74D56EAF19E9F75B63334 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapDori-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E77816324A705B200CBFF72 /* Sources */ = {
@@ -142,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E77818124A74C4900CBFF72 /* SecondViewController.swift in Sources */,
+				0EBB295E24AC2759003B99BB /* LaunchViewController.swift in Sources */,
 				0E77816F24A705B200CBFF72 /* ViewController.swift in Sources */,
 				0E77816B24A705B200CBFF72 /* AppDelegate.swift in Sources */,
 				0E77816D24A705B200CBFF72 /* SceneDelegate.swift in Sources */,
@@ -286,6 +362,7 @@
 		};
 		0E77817C24A705B300CBFF72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C541DF8105B0B0E5EC11AA60 /* Pods-MapDori.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +380,7 @@
 		};
 		0E77817D24A705B300CBFF72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 963F050FCE4CA0F6C66FB28C /* Pods-MapDori.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
