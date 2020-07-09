@@ -14,8 +14,11 @@ Today I learned..
     2. BottomAnchor에 centerYAnchor로 잡기
     3. extension에 함수 쓰고 viewdidload에 함수 가져다 쓰기
 
-## 정리
+## Study
 - [JSON](https://www.notion.so/shooooting/JSON-JavaScript-Object-Notation-ad7652661f39464cb342f1f028ef8995)
+- [Firebase](https://www.notion.so/shooooting/Firebase-9980e1aaf3ae44e591e9cb82e36af752)
+    
+    1.  자주 사용해봐야 할 것 같다. 적용하는 방법은 간단한데 데이터를 주고 받고 하는 부분을 더 연습해 봐야 할 것 같다. 
 
 
 ## 정리 중
