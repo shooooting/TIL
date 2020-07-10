@@ -29,3 +29,4 @@ Today I learned..
 ## 정리 중
 - [URLSession](https://www.notion.so/shooooting/URLSession-df6cc10c381946aa865a260a330c4d72)
 - [Codable](https://www.notion.so/shooooting/Codable-0c272fe62d9f4ec9be2fa1f067c36392)
+- [Snapkit](https://www.notion.so/shooooting/SnapKit-b1a6f74fa9f6422ba9d246b1f02edff3)
