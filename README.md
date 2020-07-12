@@ -35,3 +35,6 @@ Today I learned..
 - [CafeSpot](https://www.notion.so/shooooting/6e249ba2f8924397afd2cbb6d2ed0b42)
     
     1. 첫번째 뷰를 만드는데 데이터를 가져오는 방법에 대한 문제, 코너라디우스, 하트 버튼이 클릭이 되지 않았던 문제 여러가지가 발생했다.
+        - cornerRadius 해결
+        - Heartbutton 해결
+        - data문제 많이 해결
