@@ -30,3 +30,8 @@ Today I learned..
 - [URLSession](https://www.notion.so/shooooting/URLSession-df6cc10c381946aa865a260a330c4d72)
 - [Codable](https://www.notion.so/shooooting/Codable-0c272fe62d9f4ec9be2fa1f067c36392)
 - [Snapkit](https://www.notion.so/shooooting/SnapKit-b1a6f74fa9f6422ba9d246b1f02edff3)
+
+## tidying up CafeSpot
+- [CafeSpot](https://www.notion.so/shooooting/6e249ba2f8924397afd2cbb6d2ed0b42)
+    
+    1. 첫번째 뷰를 만드는데 데이터를 가져오는 방법에 대한 문제, 코너라디우스, 하트 버튼이 클릭이 되지 않았던 문제 여러가지가 발생했다.
