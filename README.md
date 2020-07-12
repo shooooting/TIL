@@ -38,3 +38,4 @@ Today I learned..
         - cornerRadius 해결
         - Heartbutton 해결
         - data문제 많이 해결
+    2. SearchBar 를 활용하여 원하는 데이터 검색해야 하는데 검색하는 부분을 구현하기 힘들었다.
