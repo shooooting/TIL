@@ -22,7 +22,7 @@ Today I learned..
 - [Firebase](https://www.notion.so/shooooting/Firebase-9980e1aaf3ae44e591e9cb82e36af752)
     
     1.  자주 사용해봐야 할 것 같다. 적용하는 방법은 간단한데 데이터를 주고 받고 하는 부분을 더 연습해 봐야 할 것 같다. 
-    
+
 - [SPM<Swift Package Manager>](https://www.notion.so/shooooting/SPM-Swift-Package-Manager-768366a8e3ec43c6863e9ea17a528866)
 
     1. cocoapod과 비슷한 기능을 한다.
@@ -45,3 +45,6 @@ Today I learned..
     2. SearchBar 를 활용하여 원하는 데이터 검색해야 하는데 검색하는 부분을 구현하기 힘들었다.
         - 첫 글자부터 치면 검색이 원활하게 되는데 ...
         - 뒷 글자를 치면 안된다...ㅜㅜ
+    
+    * Storyboard 구현
+        - 선생님의 코드 보고 연구 및! 코드로 적용시켜 보기
