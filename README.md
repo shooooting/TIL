@@ -67,4 +67,5 @@ Today I learned..
     
     1. data parsing
         - URLSession을 활용하여 HTTP에서 JSON parsing
-        -  
+    2. stackView
+        - 따로 View를 만들어 주고 이 View에 stackView를 넣어 주려고 하는데 어떻게 넣어 줄지 고민...
