@@ -29,6 +29,7 @@ Today I learned..
     3. extension에 함수 쓰고 viewdidload에 함수 가져다 쓰기
 
 ## Study
+- [SwiftUI](https://www.notion.so/shooooting/SwiftUI-89c477516e4d41d1840fcc2609dedf7b)
 - [JSON](https://www.notion.so/shooooting/JSON-JavaScript-Object-Notation-ad7652661f39464cb342f1f028ef8995)
 - [Firebase](https://www.notion.so/shooooting/Firebase-9980e1aaf3ae44e591e9cb82e36af752)
     
