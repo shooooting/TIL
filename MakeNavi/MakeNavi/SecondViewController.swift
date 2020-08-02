@@ -17,7 +17,11 @@ class SecondViewController: UIViewController {
   }()
   
   private let upViewTitle = UILabel()
-  private let searchBar = UISearchBar()
+  private let searchBar = UITextField()
+  private let posterImg = UIImageView()
+  private let movieTitleLabel = UILabel()
+  
+  private let border = CALayer()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,11 +30,35 @@ class SecondViewController: UIViewController {
     setConstraint()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+//    searchBar.becomeFirstResponder()
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    searchBar.resignFirstResponder()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    searchBar.borderStyle = .none
+    border.frame = CGRect(x: 0, y: searchBar.frame.size.height-1, width: searchBar.frame.width, height: 2)
+    border.backgroundColor = UIColor.black.cgColor
+    searchBar.textColor = UIColor.black
+    searchBar.placeholder = "검색어를 입력해주세요."
+  }
+  
   func setUI() {
-    [upV, upViewTitle, searchBar].forEach { view.addSubview($0) }
+    [upV, upViewTitle, searchBar, posterImg, movieTitleLabel].forEach { view.addSubview($0) }
+    
+    searchBar.layer.addSublayer(border)
+    searchBar.delegate = self
     
     upViewTitle.text = "SearchL:)st"
     upViewTitle.font = UIFont.boldSystemFont(ofSize: 35)
+    
+    posterImg.backgroundColor = .red
+    movieTitleLabel.backgroundColor = .green
   }
   
   func setConstraint() {
@@ -38,7 +66,7 @@ class SecondViewController: UIViewController {
     
     let space: CGFloat = 16
     
-    [upViewTitle, searchBar].forEach {
+    [upViewTitle, searchBar, posterImg, movieTitleLabel].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -47,51 +75,78 @@ class SecondViewController: UIViewController {
       upViewTitle.bottomAnchor.constraint(equalTo: upV.bottomAnchor, constant: -space),
       
       searchBar.topAnchor.constraint(equalTo: upV.bottomAnchor),
-      searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      searchBar.widthAnchor.constraint(equalToConstant: view.frame.width),
-      searchBar.heightAnchor.constraint(equalToConstant: 50)
+      searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: space),
+      searchBar.widthAnchor.constraint(equalToConstant: view.frame.width - (space * 2)),
+      searchBar.heightAnchor.constraint(equalToConstant: 50),
+      
+      posterImg.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      posterImg.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: space),
+      posterImg.widthAnchor.constraint(equalToConstant: view.frame.width - (space * 2)),
+      posterImg.heightAnchor.constraint(equalToConstant: view.frame.height / 2),
+      
+      movieTitleLabel.topAnchor.constraint(equalTo: posterImg.bottomAnchor, constant: space),
+      movieTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      
     ])
   }
   
-//  func requestAPI(queryValue: String) {
-//    let clientID: String = "uiqxm1pLgFZShlkQAKbU"
-//    let clientKey: String = "b3wG6Jny41"
-//
-//    let query: String = "https://openapi.naver.com/v1/search/movie.json?query=\(queryValue)"
-//    let encodedQuery: String = query.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-//    let queryURL: URL = URL(string: encodedQuery)!
-//
-//    var requestURL = URLRequest(url: queryURL)
-//    requestURL.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-//    requestURL.addValue(clientID, forHTTPHeaderField: "X-naver-client-Id")
-//    requestURL.addValue(clientKey, forHTTPHeaderField: "X-naver-Client-Secret")
-//
-//    let task = URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
-//      guard error == nil else { return }
-//      guard let data = data else { return }
-//
-//      do {
-//        let searchInfo: SearchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-//        dataManager.shared.searchResult = searchInfo
-//      } catch {
-//        print(error)
-//      }
-//    }
-//    task.resume()
-//  }
-//
-//  func urlTaskDone() {
-//    let item = dataManager.shared.searchResult?.items[0]
-//
-//    do {
-//      let imageURL = URL(string: item!.image)
-//      let imageData = try Data(contentsOf: imageURL!)
-//      let posterImage = UIImage(data: imageData)
-//
-//      OperationQueue.main.addOperation {
-//      }
-//    } catch {
-//
-//    }
-//  }
+  func requestAPI(queryValue: String) {
+    let clientID: String = "uiqxm1pLgFZShlkQAKbU"
+    let clientKey: String = "b3wG6Jny41"
+
+    let query: String = "https://openapi.naver.com/v1/search/movie.json?query=\(queryValue)"
+    let encodedQuery: String = query.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    let queryURL: URL = URL(string: encodedQuery)!
+
+    var requestURL = URLRequest(url: queryURL)
+    requestURL.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+    requestURL.addValue(clientID, forHTTPHeaderField: "X-naver-client-Id")
+    requestURL.addValue(clientKey, forHTTPHeaderField: "X-naver-Client-Secret")
+
+    let task = URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
+      guard error == nil else { return }
+      guard let data = data else { return }
+
+      do {
+        let searchInfo: SearchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+        dataManager.shared.searchResult = searchInfo
+        self.urlTaskDone()
+      } catch {
+        print(error)
+      }
+    }
+    task.resume()
+  }
+
+  func urlTaskDone() {
+    let item = dataManager.shared.searchResult?.items[0]
+
+    do {
+      let imageURL = URL(string: item!.image)
+      let imageData = try Data(contentsOf: imageURL!)
+      let posterImage = UIImage(data: imageData)
+      
+      DispatchQueue.main.async {
+        self.posterImg.image = posterImage
+        self.movieTitleLabel.text = item?.title
+      }
+    } catch {
+
+    }
+  }
+}
+
+extension SecondViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    let queryValue: String = searchBar.text ?? ""
+    requestAPI(queryValue: queryValue)
+    searchBar.resignFirstResponder()
+    return true
+  }
+  
+  func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    posterImg.image = .none
+    movieTitleLabel.text = .none
+    return true
+  }
 }
