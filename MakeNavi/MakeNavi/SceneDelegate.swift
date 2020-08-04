@@ -18,13 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     let first = ViewController()
     let second = SecondViewController()
+    let third = ThirdViewController()
     let tabBar = UITabBarController()
     
     first.tabBarItem = UITabBarItem(title: "L:)st", image: UIImage(systemName: "film"), tag: 0)
     second.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), tag: 1)
+    third.tabBarItem = UITabBarItem(title: "P:)ck", image: UIImage(systemName: "list.number"), tag: 2)
     
+    UITabBar.appearance().backgroundColor = UIColor.white
     UITabBar.appearance().tintColor = .black
-    tabBar.viewControllers = [first, second]
+    tabBar.viewControllers = [first, second, third]
     
     window = UIWindow(windowScene: windowScene)
     window?.backgroundColor = .systemBackground

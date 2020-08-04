@@ -21,6 +21,8 @@ class SecondViewController: UIViewController {
   private let posterImg = UIImageView()
   private let movieTitleLabel = UILabel()
   
+  let button = UIButton(type: .system)
+  
   private let border = CALayer()
   
   override func viewDidLoad() {
@@ -32,7 +34,7 @@ class SecondViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-//    searchBar.becomeFirstResponder()
+    //    searchBar.becomeFirstResponder()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -69,7 +71,7 @@ class SecondViewController: UIViewController {
     [upViewTitle, searchBar, posterImg, movieTitleLabel].forEach {
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
     NSLayoutConstraint.activate([
       upViewTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: space),
       upViewTitle.bottomAnchor.constraint(equalTo: upV.bottomAnchor, constant: -space),
@@ -93,20 +95,20 @@ class SecondViewController: UIViewController {
   func requestAPI(queryValue: String) {
     let clientID: String = "uiqxm1pLgFZShlkQAKbU"
     let clientKey: String = "b3wG6Jny41"
-
+    
     let query: String = "https://openapi.naver.com/v1/search/movie.json?query=\(queryValue)"
     let encodedQuery: String = query.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
     let queryURL: URL = URL(string: encodedQuery)!
-
+    
     var requestURL = URLRequest(url: queryURL)
-    requestURL.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    requestURL.addValue(clientID, forHTTPHeaderField: "X-naver-client-Id")
+    //    requestURL.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+    requestURL.addValue(clientID, forHTTPHeaderField: "X-naver-Client-Id")
     requestURL.addValue(clientKey, forHTTPHeaderField: "X-naver-Client-Secret")
-
+    
     let task = URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
       guard error == nil else { return }
       guard let data = data else { return }
-
+      
       do {
         let searchInfo: SearchResult = try JSONDecoder().decode(SearchResult.self, from: data)
         dataManager.shared.searchResult = searchInfo
@@ -117,21 +119,22 @@ class SecondViewController: UIViewController {
     }
     task.resume()
   }
-
+  
   func urlTaskDone() {
     let item = dataManager.shared.searchResult?.items[0]
-
-    do {
+    
+    do{
       let imageURL = URL(string: item!.image)
       let imageData = try Data(contentsOf: imageURL!)
-      let posterImage = UIImage(data: imageData)
+      let img = UIImage(data: imageData)
       
       DispatchQueue.main.async {
-        self.posterImg.image = posterImage
+//        self.posterImg.image = posterImage
         self.movieTitleLabel.text = item?.title
+        self.posterImg.image = img!
       }
     } catch {
-
+      
     }
   }
 }
@@ -144,9 +147,25 @@ extension SecondViewController: UITextFieldDelegate {
     return true
   }
   
-  func textFieldShouldClear(_ textField: UITextField) -> Bool {
-    posterImg.image = .none
-    movieTitleLabel.text = .none
-    return true
-  }
+//  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//
+//    view.addSubview(button)
+//    button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+//    button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    button.imageView?.contentMode = .scaleAspectFill
+//    button.clipsToBounds = true
+//    button.tintColor = .black
+//
+//    button.translatesAutoresizingMaskIntoConstraints = false
+//    NSLayoutConstraint.activate([
+//
+//      button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+//      button.topAnchor.constraint(equalTo: searchBar.topAnchor),
+//      button.widthAnchor.constraint(equalToConstant: 50),
+//      button.heightAnchor.constraint(equalToConstant: 50),
+//
+//      //      searchBar.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: -40),
+//    ])
+//    return true
+//  }
 }
