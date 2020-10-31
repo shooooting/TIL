@@ -106,6 +106,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MPw-nr-09m"/>
+                    <connections>
+                        <outlet property="login" destination="82p-gZ-bAC" id="NsA-o0-vCw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
