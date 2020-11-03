@@ -17,6 +17,9 @@
 		0ED9BE9B254FE19300A405E1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9BE9A254FE19300A405E1 /* Model.swift */; };
 		0ED9BE9E254FFCB300A405E1 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9BE9D254FFCB300A405E1 /* ComposeViewController.swift */; };
 		0ED9BEA62550040F00A405E1 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9BEA52550040F00A405E1 /* UIViewController+Alert.swift */; };
+		0ED9BEAA255159F500A405E1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9BEA9255159F500A405E1 /* DetailViewController.swift */; };
+		0ED9BEB125516CC700A405E1 /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9BEAF25516CC700A405E1 /* Memo.xcdatamodeld */; };
+		0ED9BED925516F1D00A405E1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED9BED825516F1D00A405E1 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		0ED9BE9A254FE19300A405E1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0ED9BE9D254FFCB300A405E1 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		0ED9BEA52550040F00A405E1 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		0ED9BEA9255159F500A405E1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0ED9BEB025516CC700A405E1 /* Memo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memo.xcdatamodel; sourceTree = "<group>"; };
+		0ED9BED825516F1D00A405E1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +72,11 @@
 			children = (
 				0E4B2DE4254EDAAC0025CB9B /* AppDelegate.swift */,
 				0E4B2DE6254EDAAC0025CB9B /* SceneDelegate.swift */,
+				0ED9BED725516F0A00A405E1 /* Data */,
 				0ED9BE99254FE17B00A405E1 /* Model */,
 				0ED9BE97254FDF9C00A405E1 /* View */,
 				0E4B2DEA254EDAAC0025CB9B /* Main.storyboard */,
+				0ED9BEAF25516CC700A405E1 /* Memo.xcdatamodeld */,
 				0E4B2DED254EDAAC0025CB9B /* Assets.xcassets */,
 				0E4B2DEF254EDAAC0025CB9B /* LaunchScreen.storyboard */,
 				0E4B2DF2254EDAAC0025CB9B /* Info.plist */,
@@ -81,6 +89,7 @@
 			children = (
 				0E4B2DE8254EDAAC0025CB9B /* MainViewController.swift */,
 				0ED9BE9D254FFCB300A405E1 /* ComposeViewController.swift */,
+				0ED9BEA9255159F500A405E1 /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,6 +101,14 @@
 				0ED9BEA52550040F00A405E1 /* UIViewController+Alert.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0ED9BED725516F0A00A405E1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0ED9BED825516F1D00A405E1 /* DataManager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +193,9 @@
 				0ED9BEA62550040F00A405E1 /* UIViewController+Alert.swift in Sources */,
 				0E4B2DE7254EDAAC0025CB9B /* SceneDelegate.swift in Sources */,
 				0ED9BE9B254FE19300A405E1 /* Model.swift in Sources */,
+				0ED9BEAA255159F500A405E1 /* DetailViewController.swift in Sources */,
+				0ED9BED925516F1D00A405E1 /* DataManager.swift in Sources */,
+				0ED9BEB125516CC700A405E1 /* Memo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +418,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0ED9BEAF25516CC700A405E1 /* Memo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0ED9BEB025516CC700A405E1 /* Memo.xcdatamodel */,
+			);
+			currentVersion = 0ED9BEB025516CC700A405E1 /* Memo.xcdatamodel */;
+			path = Memo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0E4B2DD9254EDAAC0025CB9B /* Project object */;
 }

@@ -10,15 +10,16 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
-    let formatter: DateFormatter = {
+    private let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
         f.timeStyle = .short
         f.locale = Locale(identifier: "ko_kr")
         return f
     }()
-    let tableV = UITableView()
-
+    private let tableV = UITableView()
+    
+    private var token: NSObjectProtocol?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,8 +32,11 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // 뷰컨트롤러가 관리하는 뷰가 화면에 표시되기 직전에 호출이 된다.
         
-        tableV.reloadData()
-        print(#function)
+        
+        DataManager.shared.fetchMemo() // 배열이 데이터로 채워짐
+        tableV.reloadData() // 배열 기반으로 테이블뷰 업데이트 
+//        tableV.reloadData()
+//        print(#function)
     }
     
     // MARK: - UI
@@ -55,6 +59,10 @@ class MainViewController: UIViewController {
         
         tableV.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
+            self?.tableV.reloadData()
+        }
+        
     }
     
     fileprivate func setConstraints() {
@@ -67,28 +75,36 @@ class MainViewController: UIViewController {
     @objc
     fileprivate func tappedBarRightButton() {
         let plus = UINavigationController(rootViewController: ComposeViewController())
-        plus.modalPresentationStyle = .fullScreen
+//        plus.modalPresentationStyle = .fullScreen
         present(plus, animated: true)
     }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Memo.dummyMemoList.count
+        return DataManager.shared.memoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
-        
-        let target = Memo.dummyMemoList[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        let target = DataManager.shared.memoList[indexPath.row]
         
         cell.focusStyle = .default
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = formatter.string(from: target.insertData)
+        cell.detailTextLabel?.text = formatter.string(for: target.insertDate)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        vc.memo = DataManager.shared.memoList[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
 }
 
