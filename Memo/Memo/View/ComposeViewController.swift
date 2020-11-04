@@ -9,6 +9,8 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
+    var editTarget: Memo?
+    
     private let txtV = UITextView()
     
     override func viewDidLoad() {
@@ -30,6 +32,14 @@ class ComposeViewController: UIViewController {
         navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(tappedLeftCancelButton)), animated: true)
         
         txtV.font?.withSize(14)
+        
+        if let memo = editTarget {
+            navigationItem.title = "메모 편집"
+            txtV.text = memo.content
+        } else {
+            navigationItem.title = "새 메모"
+            txtV.text = ""
+        }
     }
     
     fileprivate func setConstraint() {
@@ -49,8 +59,16 @@ class ComposeViewController: UIViewController {
         
 //        let newMemo = Memo(content: memo)
 //        Memo.dummyMemoList.append(newMemo)
+        if let target = editTarget {
+            target.content = memo
+            DataManager.shared.saveContext()
+            NotificationCenter.default.post(name: ComposeViewController.memoDidChange, object: nil)
+        } else {
+            DataManager.shared.addNewMemo(memo)
+            NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+        }
         
-        NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+        
         
         dismiss(animated: true, completion: nil)
     }
@@ -64,4 +82,5 @@ class ComposeViewController: UIViewController {
 
 extension ComposeViewController {
     static let newMemoDidInsert = Notification.Name(rawValue: "newMemoDidInsert")
+    static let memoDidChange = Notification.Name(rawValue: "memoDidChange")
 }

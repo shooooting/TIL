@@ -32,9 +32,8 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // 뷰컨트롤러가 관리하는 뷰가 화면에 표시되기 직전에 호출이 된다.
         
-        
         DataManager.shared.fetchMemo() // 배열이 데이터로 채워짐
-        tableV.reloadData() // 배열 기반으로 테이블뷰 업데이트 
+        tableV.reloadData() // 배열 기반으로 테이블뷰 업데이트
 //        tableV.reloadData()
 //        print(#function)
     }

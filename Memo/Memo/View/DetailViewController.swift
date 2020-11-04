@@ -16,9 +16,19 @@ class DetailViewController: UIViewController {
         f.locale = Locale(identifier: "ko_kr")
         return f
     }()
+    
     private let tableV = UITableView()
     private let toolBar = UIToolbar()
+    
     var memo: Memo? // 이전 화면에서 전달한 메모가 저장
+    
+    var token: NSObjectProtocol?
+    
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +45,28 @@ class DetailViewController: UIViewController {
         navigationItem.title = ""
         navigationItem.largeTitleDisplayMode = .never
         
+        let toolBtn = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(tappedToolBarBtn))
+        
+        toolBar.setItems([toolBtn], animated: true)
+        
         tableV.delegate = self
         tableV.dataSource = self
         tableV.separatorStyle = .none
         
         tableV.register(UITableViewCell.self, forCellReuseIdentifier: "memoCell")
         tableV.register(UITableViewCell.self, forCellReuseIdentifier: "dateCell")
+        
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.memoDidChange, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in
+            self?.tableV.reloadData()
+        })
+    }
+    
+    @objc
+    func tappedToolBarBtn() {
+//        let compose = UINavigationController(rootViewController: ComposeViewController())
+        let compose = ComposeViewController()
+        compose.editTarget = memo
+        present(UINavigationController(rootViewController:compose), animated: true)
     }
     
     fileprivate func setConstraint() {
@@ -49,7 +75,8 @@ class DetailViewController: UIViewController {
         }
         
         toolBar.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
     }

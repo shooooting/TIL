@@ -35,6 +35,17 @@ class DataManager {
         
     }
     
+    func addNewMemo(_ memo: String?) {
+        let newMemo = Memo(context: mainContenxt) // 비어있는 인스턴스가 생성된다.
+        
+        newMemo.content = memo
+        newMemo.insertDate = Date()
+        
+        memoList.insert(newMemo, at: 0) // 배열 가장 앞 부분에 추가한다.
+        
+        saveContext()
+    }
+    
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentContainer = {
