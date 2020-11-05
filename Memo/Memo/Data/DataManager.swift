@@ -35,7 +35,7 @@ class DataManager {
         
     }
     
-    func addNewMemo(_ memo: String?) {
+    func addNewMemo(_ memo: String?) { // 새로운 메모 생성
         let newMemo = Memo(context: mainContenxt) // 비어있는 인스턴스가 생성된다.
         
         newMemo.content = memo
