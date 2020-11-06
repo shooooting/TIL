@@ -20,16 +20,16 @@ class ComposeViewController: UIViewController {
         setConstraint()
     }
     
-    override func viewWillAppear(_ animated: Bool) { // 편집화면이 표시되기 직전에
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.presentationController?.delegate = self
+        navigationController?.presentationController?.delegate = self // 편집화면이 표시되기 직전에 델리게이트 설정
     }
     
-    override func viewWillDisappear(_ animated: Bool) { // 편집화면이 사라지기 직전에
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.presentationController?.delegate = nil
+        navigationController?.presentationController?.delegate = nil // 편집화면이 사라지기 직전에 델리게이트 해제
     }
     
     fileprivate func setUI() {
@@ -102,7 +102,7 @@ extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) { // 텍스트뷰에서 텍스트를 편집할때마다 반복적으로 호출된다.
         if let original = originalMemoContent, let edited = txtV.text {
             if #available(iOS 13.0, *) {
-                isModalInPresentation = original != edited // original이랑 edited의 내용이 다를때 true를 보냄
+                isModalInPresentation = original != edited // original이랑 edited의 내용이 다를때 true를 보
                 // 텍스트뷰에서 메모를 편집하면 원복과 다른가를 판단해서 원본과 다르면 메모가 편집되었다고 생각한다.
             } else {
                 // Fallback on earlier versions

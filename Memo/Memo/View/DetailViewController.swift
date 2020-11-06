@@ -46,8 +46,10 @@ class DetailViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         
         let toolBtn = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(tappedToolBarBtn))
+        let deleteBtn = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tappedToolBarDeleteBtn))
+        deleteBtn.tintColor = .red
         
-        toolBar.setItems([toolBtn], animated: true)
+        toolBar.setItems([deleteBtn, toolBtn], animated: true)
         
         tableV.delegate = self
         tableV.dataSource = self
@@ -67,6 +69,23 @@ class DetailViewController: UIViewController {
         let compose = ComposeViewController()
         compose.editTarget = memo
         present(UINavigationController(rootViewController:compose), animated: true)
+    }
+    
+    @objc
+    func tappedToolBarDeleteBtn() {
+        let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제할까요?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] (action) in
+            DataManager.shared.deleteMemo(self?.memo)
+            self?.navigationController?.popViewController(animated: true)
+        }// destructive 스타일은 텍스트가 빨강이 된다.
+        
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func setConstraint() {
