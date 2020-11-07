@@ -34,8 +34,7 @@ class MainViewController: UIViewController {
         
         DataManager.shared.fetchMemo() // 배열이 데이터로 채워짐
         tableV.reloadData() // 배열 기반으로 테이블뷰 업데이트
-//        tableV.reloadData()
-//        print(#function)
+
     }
     
     // MARK: - UI
@@ -103,7 +102,28 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         vc.memo = DataManager.shared.memoList[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
         
-        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true // 편집 기능 활성화
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete // 편집 기능 스타일 설정 삭제로 선택
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let target = DataManager.shared.memoList[indexPath.row] // 삭제할 메모를 저장
+            DataManager.shared.deleteMemo(target) // 딜리트메모를 호출하고 전달
+            DataManager.shared.memoList.remove(at: indexPath.row)
+            
+            tableV.deleteRows(at: [indexPath], with: .fade)
+            
+        } else if editingStyle == .insert {
+            
+        }
     }
 }
 
