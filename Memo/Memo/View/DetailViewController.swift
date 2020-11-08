@@ -49,8 +49,9 @@ class DetailViewController: UIViewController {
         let flexibleSpaceBar = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let deleteBtn = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tappedToolBarDeleteBtn))
         deleteBtn.tintColor = .red
+        let actionBtn = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(tappedToolBarShareBtn))
         
-        toolBar.setItems([deleteBtn, flexibleSpaceBar, toolBtn], animated: true)
+        toolBar.setItems([deleteBtn, flexibleSpaceBar, toolBtn, flexibleSpaceBar, actionBtn], animated: true)
         
         tableV.delegate = self
         tableV.dataSource = self
@@ -87,6 +88,16 @@ class DetailViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc
+    func tappedToolBarShareBtn() {
+        guard let memo = memo?.content else {
+            return
+        }
+        
+        let VC = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+        present(VC, animated: true, completion: nil)
     }
     
     fileprivate func setConstraint() {
