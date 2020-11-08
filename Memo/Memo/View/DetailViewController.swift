@@ -46,10 +46,11 @@ class DetailViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         
         let toolBtn = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(tappedToolBarBtn))
+        let flexibleSpaceBar = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let deleteBtn = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tappedToolBarDeleteBtn))
         deleteBtn.tintColor = .red
         
-        toolBar.setItems([deleteBtn, toolBtn], animated: true)
+        toolBar.setItems([deleteBtn, flexibleSpaceBar, toolBtn], animated: true)
         
         tableV.delegate = self
         tableV.dataSource = self
