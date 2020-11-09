@@ -13,6 +13,19 @@ class ComposeViewController: UIViewController {
     var editTarget: Memo?
     var originalMemoContent: String? // 편집 이전의 메모 내용 저장
     
+    var willShowToken: NSObjectProtocol?
+    var willHideToken: NSObjectProtocol?
+    
+    deinit {
+        if let token =  willShowToken {
+            NotificationCenter.default.removeObserver(token)
+        }
+        
+        if let token = willHideToken {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +68,22 @@ class ComposeViewController: UIViewController {
         }
         
         txtV.delegate = self
+        
+        willShowToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in
+            guard let toSelf = self else { return }
+            
+            if let frame = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let height = frame.cgRectValue.height
+                
+                var inset = toSelf.txtV.contentInset
+                inset.bottom = height
+                toSelf.txtV.contentInset = inset
+                
+                inset = toSelf.txtV.scrollIndicatorInsets
+                inset.bottom = height
+                toSelf.txtV.scrollIndicatorInsets = inset
+            }
+        })
     }
     
     fileprivate func setConstraint() {
