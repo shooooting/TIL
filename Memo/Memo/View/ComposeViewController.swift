@@ -36,6 +36,7 @@ class ComposeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        txtV.becomeFirstResponder()
         navigationController?.presentationController?.delegate = self // 편집화면이 표시되기 직전에 델리게이트 설정
     }
     
