@@ -94,6 +94,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = target.content
         cell.detailTextLabel?.text = formatter.string(for: target.insertDate)
         
+        cell.textLabel?.textColor = UIColor(named: "myColor")
+        
         return cell
     }
     
