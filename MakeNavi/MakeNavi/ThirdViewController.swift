@@ -128,7 +128,7 @@ extension ThirdViewController: UICollectionViewDataSource {
 }
 
 extension ThirdViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    <#code#>
-  }
+//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    <#code#>
+//  }
 }

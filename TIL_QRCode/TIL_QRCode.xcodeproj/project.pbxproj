@@ -13,7 +13,7 @@
 		0E9B352F254AAB1700059877 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B352D254AAB1700059877 /* Main.storyboard */; };
 		0E9B3531254AAB1700059877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B3530254AAB1700059877 /* Assets.xcassets */; };
 		0E9B3534254AAB1700059877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B3532254AAB1700059877 /* LaunchScreen.storyboard */; };
-		0E9B353F254ABF3D00059877 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0E9B353E254ABF3D00059877 /* SwiftPackageProductDependency */; };
+		0E9B353F254ABF3D00059877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0E9B353E254ABF3D00059877 /* SnapKit */; };
 		AD7A4EC451C6E6E6422498F8 /* Pods_TIL_QRCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E003AD740E397CA881FCD1 /* Pods_TIL_QRCode.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E9B353F254ABF3D00059877 /* BuildFile in Frameworks */,
+				0E9B353F254ABF3D00059877 /* SnapKit in Frameworks */,
 				AD7A4EC451C6E6E6422498F8 /* Pods_TIL_QRCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +92,6 @@
 				D73EC324D7F1B4CF9B0D2D33 /* Pods-TIL_QRCode.debug.xcconfig */,
 				63261A9EB2CEDAD93646965B /* Pods-TIL_QRCode.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -115,7 +114,7 @@
 			);
 			name = TIL_QRCode;
 			packageProductDependencies = (
-				0E9B353E254ABF3D00059877 /* SwiftPackageProductDependency */,
+				0E9B353E254ABF3D00059877 /* SnapKit */,
 			);
 			productName = TIL_QRCode;
 			productReference = 0E9B3524254AAB1600059877 /* TIL_QRCode.app */;
@@ -145,7 +144,7 @@
 			);
 			mainGroup = 0E9B351B254AAB1600059877;
 			packageReferences = (
-				0E9B353D254ABF3D00059877 /* RemoteSwiftPackageReference */,
+				0E9B353D254ABF3D00059877 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 0E9B3525254AAB1600059877 /* Products */;
 			projectDirPath = "";
@@ -369,6 +368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3HC733CNK;
 				INFOPLIST_FILE = TIL_QRCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,6 +389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q3HC733CNK;
 				INFOPLIST_FILE = TIL_QRCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +425,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0E9B353D254ABF3D00059877 /* RemoteSwiftPackageReference */ = {
+		0E9B353D254ABF3D00059877 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -435,9 +436,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0E9B353E254ABF3D00059877 /* SwiftPackageProductDependency */ = {
+		0E9B353E254ABF3D00059877 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E9B353D254ABF3D00059877 /* RemoteSwiftPackageReference */;
+			package = 0E9B353D254ABF3D00059877 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
