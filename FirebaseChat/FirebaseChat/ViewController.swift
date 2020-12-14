@@ -55,7 +55,9 @@ class ViewController: UIViewController {
     // MARK: - Button Action
     @objc
     private func didTapNavigationRightButton() {
-        
+        let vc = ComposeViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     
