@@ -7,20 +7,30 @@
 
 import UIKit
 
+
+
 class MyTableViewCell: UITableViewCell {
     
     
     // MARK: - Properties
     static let identifier = "MyTableViewCell"
     
-    var label1 = UILabel()
-    var label2 = UILabel()
+    var namelabel1 = UILabel()
+    var numberlabel2 = UILabel()
+    var button = UIButton()
+    
+    var delegate: MyTableViewCellDelegate?
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureLayout()
+        
+        button.setTitle("Button", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.frame.size = CGSize(width: 100, height: 50)
+        button.addTarget(self, action: #selector(tapCenterButton), for: .touchUpInside)
         
     }
     
@@ -29,17 +39,24 @@ class MyTableViewCell: UITableViewCell {
     }
     
     private func configureLayout() {
-        [label2, label1].forEach {
+        [numberlabel2, namelabel1, button].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
-            label1.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            label2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            namelabel1.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            numberlabel2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             
-            label1.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            label2.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            namelabel1.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            numberlabel2.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
+            button.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            button.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
+    }
+    
+    @objc func tapCenterButton() {
+        delegate?.buttonNameAndNumber(cell: self)
     }
 }

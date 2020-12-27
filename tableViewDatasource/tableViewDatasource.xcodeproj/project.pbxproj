@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		0ED79E2025871CE4003E6B09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ED79E1E25871CE4003E6B09 /* LaunchScreen.storyboard */; };
 		0ED79E2B25871E2D003E6B09 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED79E2A25871E2D003E6B09 /* MyTableViewCell.swift */; };
 		0ED79E2E25872203003E6B09 /* CustomDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED79E2D25872203003E6B09 /* CustomDS.swift */; };
+		0EE9BA4725899D4800A85BA1 /* LoginValidataor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE9BA4625899D4800A85BA1 /* LoginValidataor.swift */; };
+		0EE9BA4B2589D8FE00A85BA1 /* Second.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE9BA4A2589D8FE00A85BA1 /* Second.swift */; };
+		0EE9BA4F2589D96700A85BA1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE9BA4E2589D96700A85BA1 /* SnapKit */; };
+		0EE9BA532589DA1A00A85BA1 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 0EE9BA522589DA1A00A85BA1 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		0ED79E2125871CE4003E6B09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED79E2A25871E2D003E6B09 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		0ED79E2D25872203003E6B09 /* CustomDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDS.swift; sourceTree = "<group>"; };
+		0EE9BA4625899D4800A85BA1 /* LoginValidataor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidataor.swift; sourceTree = "<group>"; };
+		0EE9BA4A2589D8FE00A85BA1 /* Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EE9BA4F2589D96700A85BA1 /* SnapKit in Frameworks */,
+				0EE9BA532589DA1A00A85BA1 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +68,8 @@
 				0ED79E1725871CE3003E6B09 /* ViewController.swift */,
 				0ED79E2A25871E2D003E6B09 /* MyTableViewCell.swift */,
 				0ED79E2D25872203003E6B09 /* CustomDS.swift */,
+				0EE9BA4625899D4800A85BA1 /* LoginValidataor.swift */,
+				0EE9BA4A2589D8FE00A85BA1 /* Second.swift */,
 				0ED79E1C25871CE4003E6B09 /* Assets.xcassets */,
 				0ED79E1E25871CE4003E6B09 /* LaunchScreen.storyboard */,
 				0ED79E2125871CE4003E6B09 /* Info.plist */,
@@ -83,6 +93,10 @@
 			dependencies = (
 			);
 			name = tableViewDatasource;
+			packageProductDependencies = (
+				0EE9BA4E2589D96700A85BA1 /* SnapKit */,
+				0EE9BA522589DA1A00A85BA1 /* Then */,
+			);
 			productName = tableViewDatasource;
 			productReference = 0ED79E1025871CE3003E6B09 /* tableViewDatasource.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +124,10 @@
 				Base,
 			);
 			mainGroup = 0ED79E0725871CE3003E6B09;
+			packageReferences = (
+				0EE9BA4D2589D96700A85BA1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0EE9BA512589DA1A00A85BA1 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 0ED79E1125871CE3003E6B09 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +158,8 @@
 				0ED79E1425871CE3003E6B09 /* AppDelegate.swift in Sources */,
 				0ED79E2B25871E2D003E6B09 /* MyTableViewCell.swift in Sources */,
 				0ED79E2E25872203003E6B09 /* CustomDS.swift in Sources */,
+				0EE9BA4725899D4800A85BA1 /* LoginValidataor.swift in Sources */,
+				0EE9BA4B2589D8FE00A85BA1 /* Second.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +353,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0EE9BA4D2589D96700A85BA1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		0EE9BA512589DA1A00A85BA1 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0EE9BA4E2589D96700A85BA1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EE9BA4D2589D96700A85BA1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		0EE9BA522589DA1A00A85BA1 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EE9BA512589DA1A00A85BA1 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0ED79E0825871CE3003E6B09 /* Project object */;
 }

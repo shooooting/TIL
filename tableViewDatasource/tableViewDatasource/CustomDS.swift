@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 // 상속 -> 상위 클래스에 있는 기능들을 다 사용할 수 있게 해준다. 메소드를 쓸 수 있게 해준다.
 // UITalbeViewDataSource는 protocol 이다.
 class CustomDS<CellType, ViewModel>: NSObject, UITableViewDataSource where CellType: UITableViewCell { // T타입이 UITablewViewCell만 받는다.
@@ -42,5 +43,3 @@ class CustomDS<CellType, ViewModel>: NSObject, UITableViewDataSource where CellT
         self.items = items
     }
 }
-
-
